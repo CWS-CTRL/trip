@@ -26,11 +26,12 @@ import { ref } from "vue";
 import { getAssetURL } from "../utils/load-assets";
 import tabBarData from "../assets/data/tab-bar";
 
-let currentIndex = ref(0);
+const currentIndex = ref(0);
 </script>
 
 <style lang="less" scoped>
 .tab-bar {
+  z-index: 1;
   img {
     height: 26px;
   }

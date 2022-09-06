@@ -1,3 +1,11 @@
 :root {
   --primary-color: #ff9854;
 }
+
+.top-page {
+  position: relative;
+  z-index: 9;
+  height: 100vh;
+  background-color: #fff;
+  overflow-y: auto;
+}
