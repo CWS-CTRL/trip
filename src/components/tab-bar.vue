@@ -1,15 +1,21 @@
 <template>
   <div class="tab-bar">
-    <van-tabbar v-model="currentIndex" active-color="#ff9854" router>
-      <template v-for="(item, index) in tabBarData" :key="item.title">
+    <van-tabbar v-model="currentIndex" active-color="#24C28C" router>
+      <template v-for="(item, index) in tabBarData" :key="index">
         <van-tabbar-item :to="item.path">
           <template #icon>
-            <img
+            <!-- <img
               v-if="currentIndex !== index"
               :src="getAssetURL(item.img)"
               alt=""
             />
-            <img v-else :src="getAssetURL(item.imgActive)" alt="" />
+            <img v-else :src="getAssetURL(item.imgActive)" alt="" /> -->
+            <i
+              v-if="currentIndex !== index"
+              class="iconfont"
+              :class="item.icon"
+            ></i>
+            <i v-else class="iconfont" :class="item.iconActive"></i>
           </template>
           <template #default>
             <span>{{ item.title }}</span>
@@ -32,8 +38,8 @@ const currentIndex = ref(0);
 <style lang="less" scoped>
 .tab-bar {
   z-index: 1;
-  img {
-    height: 26px;
+  i {
+    font-size: 26px;
   }
 }
 </style>

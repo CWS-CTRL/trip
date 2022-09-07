@@ -9,3 +9,8 @@
   background-color: #fff;
   overflow-y: auto;
 }
+
+.small-shallow {
+  font-size: 12px;
+  color: #aaa;
+}
