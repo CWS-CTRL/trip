@@ -1,5 +1,6 @@
 :root {
   --primary-color: #ff9854;
+  --shallow-color: #aaa;
 }
 
 .top-page {
@@ -12,5 +13,10 @@
 
 .small-shallow {
   font-size: 12px;
-  color: #aaa;
+  color: var(--shallow-color);
+}
+
+.mid-shallow {
+  font-size: 16px;
+  color: var(--shallow-color);
 }

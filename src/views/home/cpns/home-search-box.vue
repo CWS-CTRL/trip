@@ -24,6 +24,28 @@
       </div>
     </div>
     <van-calendar v-model:show="show" type="range" @confirm="onConfirm" />
+    <div class="limit mid-shallow">
+      <div class="people"><span>价格不限</span></div>
+      <div></div>
+      <div class="price"><span>价格不限</span></div>
+    </div>
+    <div class="keyword mid-shallow"><span>关键字/位置/名宿</span></div>
+    <div class="hot-suggests">
+      <template v-for="(item, index) in homeHotSuggestsData" :key="index">
+        <div
+          class="suggest"
+          :style="{
+            color: item.tagText.color,
+            background: item.tagText.background.color,
+          }"
+        >
+          <span>{{ item.tagText.text }}</span>
+        </div>
+      </template>
+    </div>
+    <div class="search">
+      <div class="btn">开始搜索</div>
+    </div>
   </div>
 </template>
 
@@ -35,6 +57,7 @@ import { storeToRefs } from "pinia";
 import { getMD, getTourD } from "@/utils/format-date";
 
 import useCityStore from "@/stores/modules/city";
+import useHomeStore from "@/stores/modules/home";
 
 const cityStore = useCityStore();
 const { cityData } = storeToRefs(cityStore);
@@ -61,20 +84,27 @@ const onConfirm = (value) => {
   stayCount.value = getTourD(start, end);
   show.value = false;
 };
+
+const homeStore = useHomeStore();
+homeStore.getHomeHotSuggestsData();
+
+const { homeHotSuggestsData } = storeToRefs(homeStore);
 </script>
 
 <style lang="less" scoped>
 .search-box {
-  padding: 10px 10px 0;
+  padding: 0 10px 0;
+  > div {
+    height: 40px;
+    border-bottom: 1px solid #000;
+  }
 
   .location {
     display: grid;
     grid-template-columns: 7fr 3fr;
     align-items: center;
 
-    height: 30px;
     font-size: 12px;
-    border-bottom: 1px solid #000;
 
     div {
       height: 100%;
@@ -103,7 +133,6 @@ const onConfirm = (value) => {
   .select-time {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    margin-top: 10px;
 
     .start,
     .stay,
@@ -117,6 +146,42 @@ const onConfirm = (value) => {
     .stay {
       align-content: center;
       font-size: 12px;
+    }
+  }
+
+  .limit {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .keyword {
+    display: grid;
+  }
+
+  .hot-suggests {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+
+    font-size: 14px;
+    .suggest {
+      margin: 4px 8px;
+      padding: 2px;
+      border-radius: 50%;
+    }
+  }
+
+  .search {
+    display: grid;
+    grid-template: 90%/80%;
+    place-content: center;
+    .btn {
+      display: grid;
+      place-content: center;
+      border-radius: 16px;
+      background-image: linear-gradient(to right, #000 0%, #00ffff 50%);
+      font-size: 20px;
+      font-weight: 700;
     }
   }
 }

@@ -45,7 +45,6 @@ const { cityData } = storeToRefs(cityStore);
 
 const selectCity = (_cityData) => {
   cityData.value = _cityData;
-  console.log(_cityData);
   router.back();
 };
 </script>

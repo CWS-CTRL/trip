@@ -11,11 +11,14 @@ const getTourD = (start, end) => {
   return parseInt(diffs);
 };
 
-const getMD = (date) => {
+const getMD = (date, format = "MM月DD日") => {
   const month = getTen(date.getMonth() + 1);
   const day = getTen(date.getDate());
 
-  return `${month}月${day}日`;
+  const res = format
+    .toUpperCase()
+    .replace(/(MM|DD)/gi, (node, key) => ({ MM: month, DD: day }[key]));
+  return res;
 };
 
 export { getMD, getTourD };
