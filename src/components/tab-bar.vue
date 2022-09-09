@@ -29,8 +29,8 @@
 <script setup>
 import { ref } from "vue";
 
-import { getAssetURL } from "../utils/load-assets";
-import tabBarData from "../assets/data/tab-bar";
+import { getAssetURL } from "@/utils/load-assets";
+import tabBarData from "@/assets/data/tab-bar";
 
 const currentIndex = ref(0);
 </script>

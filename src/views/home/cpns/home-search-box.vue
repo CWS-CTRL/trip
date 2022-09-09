@@ -15,7 +15,9 @@
         <span class="small-shallow">入住</span>
         <span>{{ startDate }}</span>
       </div>
-      <div class="stay">共{{ stayCount }}晚</div>
+      <div class="stay">
+        <span>共{{ stayCount }}晚</span>
+      </div>
       <div class="end">
         <span class="small-shallow">离开</span>
         <span>{{ endDate }}</span>
@@ -52,7 +54,6 @@ const endDate = ref(getMD(newDate));
 const stayCount = ref(getTourD(nowDate, newDate));
 
 const onConfirm = (value) => {
-  // console.log(value[0], value[1]);
   const start = value[0];
   const end = value[1];
   startDate.value = getMD(start);

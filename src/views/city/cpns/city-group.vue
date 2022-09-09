@@ -21,8 +21,9 @@
 <script setup>
 import { computed, defineProps } from "vue";
 import { useRouter } from "vue-router";
-import useCityStore from "@/stores/modules/city";
 import { storeToRefs } from "pinia";
+
+import useCityStore from "@/stores/modules/city";
 
 const props = defineProps({
   groupData: {

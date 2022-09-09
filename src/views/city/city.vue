@@ -28,17 +28,17 @@
 <script setup>
 import { ref, watch, watchEffect } from "vue";
 import { useRouter } from "vue-router";
-import useCityStore from "@/stores/modules/city";
 import { storeToRefs } from "pinia";
+
+import useCityStore from "@/stores/modules/city";
 import CityGroup from "./cpns/city-group.vue";
 
 const router = useRouter();
 const searchValue = ref("");
-const tabActive = ref();
+const tabActive = ref("");
 
 const cityStore = useCityStore();
 cityStore.getCityAllData();
-
 const { cityAllData } = storeToRefs(cityStore);
 
 const onCancel = () => {
