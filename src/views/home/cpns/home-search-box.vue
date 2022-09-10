@@ -27,9 +27,9 @@
     <div class="limit mid-shallow">
       <div class="people"><span>价格不限</span></div>
       <div></div>
-      <div class="price"><span>价格不限</span></div>
+      <div class="price"><span>人数不限</span></div>
     </div>
-    <div class="keyword mid-shallow"><span>关键字/位置/名宿</span></div>
+    <div class="keyword mid-shallow"><span>关键字/位置/名宿名</span></div>
     <div class="hot-suggests">
       <template v-for="(item, index) in homeHotSuggestsData" :key="index">
         <div
@@ -39,7 +39,7 @@
             background: item.tagText.background.color,
           }"
         >
-          <span>{{ item.tagText.text }}</span>
+          {{ item.tagText.text }}
         </div>
       </template>
     </div>
@@ -96,7 +96,7 @@ const { homeHotSuggestsData } = storeToRefs(homeStore);
   padding: 0 10px 0;
   > div {
     height: 40px;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid #faf8f9;
   }
 
   .location {
@@ -152,10 +152,14 @@ const { homeHotSuggestsData } = storeToRefs(homeStore);
   .limit {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+    font-size: 14px;
   }
 
   .keyword {
     display: grid;
+    align-items: center;
+    font-size: 14px;
   }
 
   .hot-suggests {
@@ -164,9 +168,10 @@ const { homeHotSuggestsData } = storeToRefs(homeStore);
     flex-wrap: wrap;
 
     font-size: 14px;
+    margin: 10px 0;
     .suggest {
       margin: 4px 8px;
-      padding: 2px;
+      padding: 2px 4px;
       border-radius: 50%;
     }
   }

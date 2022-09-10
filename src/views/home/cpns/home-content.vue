@@ -5,11 +5,11 @@
     <div class="list">
       <template v-for="(item, index) in homeHouseListData" :key="index">
         <content-type9
-          v-if="item.discoveryContentType === 9"
+          v-if="item.discoveryContentType == 9"
           :item="item.data"
         ></content-type9>
         <content-type3
-          v-else-if="item.discoveryContentType === 3"
+          v-else-if="item.discoveryContentType == 3"
           :item="item.data"
         ></content-type3>
       </template>
@@ -33,5 +33,10 @@ const { homeHouseListData } = storeToRefs(homeStore);
 
 <style lang="less" scoped>
 .content {
+  margin-top: 22px;
+  .list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 </style>
